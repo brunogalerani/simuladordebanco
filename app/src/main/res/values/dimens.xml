@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_top_edit_texts">10dp</dimen>
+    <dimen name="margin_top_btns">35dp</dimen>
+    <dimen name="margin_top_radio_group">50dp</dimen>
+</resources>

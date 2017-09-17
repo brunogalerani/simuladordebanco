@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="center_horizontal|center_vertical"
+    tools:context="app.com.sistemadebanco.SimuladorVeiculoActivity">
+
+    <TextView
+        android:id="@+id/textViewVeiculos"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Simulador Para Veículos" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupVeiculos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewVeiculos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_top_radio_group"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewVeiculoNovoOuSemi"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O veículo é: " />
+
+        <RadioButton
+            android:id="@+id/radioButtonVeiculoNovo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Novo" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVeiculoUsado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Usado" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editTextValorVeiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroupVeiculos"
+        android:layout_marginTop="@dimen/margin_top_edit_texts"
+        android:hint="Valor do veículo"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextEntradaVeiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextValorVeiculo"
+        android:layout_marginTop="@dimen/margin_top_edit_texts"
+        android:hint="Porcentagem da entrada"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextQuantidadeDeParcelasVeiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextEntradaVeiculo"
+        android:layout_marginTop="@dimen/margin_top_edit_texts"
+        android:hint="Número de parcelas"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextRendaMensalVeiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextQuantidadeDeParcelasVeiculo"
+        android:layout_marginTop="@dimen/margin_top_edit_texts"
+        android:hint="Renda mensal"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/buttonCalcularVeiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextRendaMensalVeiculo"
+        android:layout_marginTop="@dimen/margin_top_btns"
+        android:text="@string/btn_calcular" />
+</RelativeLayout>

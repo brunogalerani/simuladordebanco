@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="center_horizontal|center_vertical"
+    tools:context="app.com.sistemadebanco.SimuladorResidenciaActivity">
+
+    <TextView
+        android:id="@+id/textViewResidencia"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Simulador Para Residências" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupResidencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewResidencia"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_top_radio_group"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewResidenciaNovoOuSemi"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A residência é: " />
+
+        <RadioButton
+            android:id="@+id/radioButtonResidenciaNovo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nova" />
+
+        <RadioButton
+            android:id="@+id/radioButtonResicenciaUsado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Usada" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editTextValorResidencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroupResidencia"
+        android:layout_marginTop="@dimen/margin_top_edit_texts"
+        android:hint="Valor do imóvel"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextEntradaResidencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextValorResidencia"
+        android:layout_marginTop="@dimen/margin_top_edit_texts"
+        android:hint="Porcentagem da entrada"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextQuantidadeDeParcelasResidencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextEntradaResidencia"
+        android:layout_marginTop="@dimen/margin_top_edit_texts"
+        android:hint="Número de parcelas"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextRendaMensalResidencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextQuantidadeDeParcelasResidencia"
+        android:layout_marginTop="@dimen/margin_top_edit_texts"
+        android:hint="Renda mensal"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/buttonCalcularResidencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextRendaMensalResidencia"
+        android:layout_marginTop="@dimen/margin_top_btns"
+        android:text="@string/btn_calcular" />
+</RelativeLayout>
