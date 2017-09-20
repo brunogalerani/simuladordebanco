@@ -10,6 +10,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private RadioGroup radioGroup;
+    private RadioGroup.OnCheckedChangeListener checkListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroupInicial);
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        checkListener = new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 Intent intent;
@@ -33,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
             }
-        });
+        };
+
+        radioGroup.setOnCheckedChangeListener(checkListener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        uncheckAllRadios();
+    }
+
+    public void uncheckAllRadios(){
+
+        radioGroup.setOnCheckedChangeListener(null);
+        radioGroup.clearCheck();
+        radioGroup.setOnCheckedChangeListener(checkListener);
     }
 }

@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SimuladorVeiculoActivity" />
-        <activity android:name=".SimuladorResidenciaActivity"></activity>
+        <activity android:name=".SimuladorResidenciaActivity" />
+        <activity android:name=".FinalVeiculoActivity"></activity>
     </application>
 
 </manifest>
