@@ -18,6 +18,12 @@ public class SimuladorVeiculoActivity extends AppCompatActivity {
     private EditText editTextRendaMensal;
     private Button buttonCalcular;
 
+    boolean isNovo;
+    double valorCarro;
+    double porcentagem;
+    int parcelas;
+    double rendaMensal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +40,22 @@ public class SimuladorVeiculoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (validaCampos()) {
-                    boolean isNovo = radioGroup.getCheckedRadioButtonId() == R.id.radioButtonVeiculoNovo;
-                    double valor = Double.parseDouble(editTextValor.getText().toString());
-                    double porcentagem = Double.parseDouble(editTextPorcentagem.getText().toString());
-                    int parcelas = Integer.parseInt(editTextParcelas.getText().toString());
-                    double rendaMensal = Double.parseDouble(editTextRendaMensal.getText().toString());
+                    isNovo = radioGroup.getCheckedRadioButtonId() == R.id.radioButtonVeiculoNovo;
+                    valorCarro = Double.parseDouble(editTextValor.getText().toString());
+                    porcentagem = Double.parseDouble(editTextPorcentagem.getText().toString());
+                    parcelas = Integer.parseInt(editTextParcelas.getText().toString());
+                    rendaMensal = Double.parseDouble(editTextRendaMensal.getText().toString());
+
+                    double juros = realizaCalculos();
+                    double valorTotal = juros + valorCarro;
+                    double entrada = (porcentagem / 100) * valorCarro;
 
                     Intent intent = new Intent(SimuladorVeiculoActivity.this, FinalVeiculoActivity.class);
-                    intent.putExtra("IS_NOVO", isNovo);
-                    intent.putExtra("VALOR", valor);
-                    intent.putExtra("PORCENTAGEM", porcentagem);
-                    intent.putExtra("PARCELAS", parcelas);
-                    intent.putExtra("RENDA_MENSAL", rendaMensal);
+
+                    intent.putExtra("VALOR_TOTAL", valorTotal);
+                    intent.putExtra("N_PARCELAS", parcelas);
+                    intent.putExtra("ENTRADA", entrada);
+                    intent.putExtra("RENDA", rendaMensal);
 
                     startActivity(intent);
                 } else {
@@ -63,5 +73,31 @@ public class SimuladorVeiculoActivity extends AppCompatActivity {
                         editTextParcelas.getText().toString().isEmpty() ||
                         editTextRendaMensal.getText().toString().isEmpty()
         );
+    }
+
+    private double realizaCalculos() {
+        double jurosEmplacamento = 0;
+        double taxaIPVA = 0;
+        double jurosPorRenda;
+        double jurosTotal;
+
+        if (isNovo) {
+            jurosEmplacamento = valorCarro * 0.01;
+            taxaIPVA = valorCarro * 0.04;
+        }
+
+        if (rendaMensal <= 3500) {
+            jurosPorRenda = 0.06;
+        } else if (rendaMensal < 5000) {
+            jurosPorRenda = 0.05;
+        } else {
+            jurosPorRenda = 0.04;
+        }
+
+        jurosPorRenda *= valorCarro;
+
+        jurosTotal = jurosEmplacamento + taxaIPVA + jurosPorRenda;
+
+        return jurosTotal;
     }
 }

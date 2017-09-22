@@ -30,7 +30,7 @@
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Valor Total do Veículo: " />
+            android:text="Valor Total do Veículo: R$" />
 
         <TextView
             android:id="@+id/TextViewValorParcelasVeiculo"
@@ -38,9 +38,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top_btns"
-            android:text="Valor das Parcelas: " />
+            android:text="Valor das Parcelas: R$" />
 
         <Button
+            android:id="@+id/buttonNovaSimulacaoVeiculo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"
