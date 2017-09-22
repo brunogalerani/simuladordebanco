@@ -49,8 +49,8 @@ public class SimuladorResidenciaActivity extends AppCompatActivity {
 
                     if (valorImóvel <= 0) {
                         Toast.makeText(SimuladorResidenciaActivity.this, "Valor do imóvel não pode ser nulo ou negativo!", Toast.LENGTH_SHORT).show();
-                    } else if (porcentagem < 0 || porcentagem > 100) {
-                        Toast.makeText(SimuladorResidenciaActivity.this, "Valor de porcentagem de entrada inválido!", Toast.LENGTH_SHORT).show();
+                    } else if (porcentagem < 20 || porcentagem >= 100) {
+                        Toast.makeText(SimuladorResidenciaActivity.this, "Valor de porcentagem de entrada deve ser entre 20% e 99.9%!", Toast.LENGTH_SHORT).show();
                     } else if (parcelas < 1 || parcelas > 48) {
                         Toast.makeText(SimuladorResidenciaActivity.this, "O número de parcelas deve estar entre 1 e 48!", Toast.LENGTH_SHORT).show();
                     } else if (rendaMensal <= 0) {

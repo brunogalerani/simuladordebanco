@@ -49,8 +49,8 @@ public class SimuladorVeiculoActivity extends AppCompatActivity {
 
                     if (valorCarro <= 0) {
                         Toast.makeText(SimuladorVeiculoActivity.this, "Valor do carro não pode ser nulo ou negativo!", Toast.LENGTH_SHORT).show();
-                    } else if (porcentagem < 0 || porcentagem > 100) {
-                        Toast.makeText(SimuladorVeiculoActivity.this, "Valor de porcentagem de entrada inválido!", Toast.LENGTH_SHORT).show();
+                    } else if (porcentagem < 5 || porcentagem >= 100) {
+                        Toast.makeText(SimuladorVeiculoActivity.this, "Valor de porcentagem de entrada deve ser entre 5% e 99.9%!", Toast.LENGTH_SHORT).show();
                     } else if (parcelas < 1 || parcelas > 48) {
                         Toast.makeText(SimuladorVeiculoActivity.this, "O número de parcelas deve estar entre 1 e 48!", Toast.LENGTH_SHORT).show();
                     } else if (rendaMensal <= 0) {
